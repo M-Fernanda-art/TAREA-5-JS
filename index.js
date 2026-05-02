@@ -78,4 +78,24 @@ disponibilidad
         console.log(error);
     });
 
-    
+
+// FETCH
+
+// Es para pedir información a una fuente externa desde JavaScript, puede traer datos de APIs 
+// bases de datos, archivos JSON, páginas web. El funcionamiento es: hace la solicitud, 
+// espera respuesta, devuelve una promesa, procesa datos. Funciona con promesas.
+
+
+// BUSCAR LIBROS 
+
+fetch("https://openlibrary.org")
+    .then(response => response.text())
+    .then(data => {
+        console.log("Libros encontrados:", data);
+    })
+    .catch(error => {
+        console.log("Error al buscar libros:", error);
+    });
+
+
+// No se va a mostrar por CORS policy
