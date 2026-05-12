@@ -99,3 +99,37 @@ fetch("https://openlibrary.org")
 
 
 // No se va a mostrar por CORS policy
+
+
+// TO DO LIST WITH LOOPS
+
+const tareas = [];
+
+function agregarTarea(){
+    const input = document.getElementById("tareaInput");
+    const nuevaTarea = input.value;
+
+    if(nuevaTarea !== "") {
+        tareas.push(nuevaTarea); 
+        // Agrega la tarea que se inserte en el array
+        input.value = "";
+        // Deja nuevamente el campo vacío
+        mostrarTareas();
+        // Muestra las tareas que se van agregando
+    }
+}
+
+function mostrarTareas() {
+    const lista = document.getElementById("listaTareas");
+    lista.innerHTML = "";
+    // Limpia la lista actual para volver a hacerla
+
+    for (const tarea of tareas) {
+        // Recorre cada tarea
+        const li = document.createElement("li");
+        li.textContent = tarea;
+        // Asigna el texto de la tarea
+        lista.appendChild(li);
+        // Muestra la tarea en pantalla
+    }
+}
