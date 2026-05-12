@@ -133,3 +133,34 @@ function mostrarTareas() {
         // Muestra la tarea en pantalla
     }
 }
+
+// SUBIR ARCHIVO
+
+function subirArchivo() {
+    const archivo = document.getElementById("archivoInput").files[0]
+    // Busca el input, accede a los seleccionados y toma el primer archivo
+    const mensaje = document.getElementById("mensaje");
+
+    const promesa = new Promise((resolve, reject) => {
+        // Simula el proceo de subirlo
+        if (archivo) {
+            setTimeout(() => {
+                resolve(`Archivo "${archivo.name}" subido correctamente.`);
+            }, 2000);
+            // Espera 2 segundos para simular la carga
+        } else {
+            reject("No seleccionaste ningún archivo.");
+            // Lo rechaza si no hay archivos
+        }
+    });
+
+    promesa
+    .then(resultado => {
+        mensaje.textContent = resultado;
+        // Mensaje si logra subirse
+    })
+    .catch(error => {
+        mensaje.textContent = error;
+        // Mensaje de error
+    });
+}
