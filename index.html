@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- TO DO LIST -->
+    
     <h1>Lista de tareas</h1>
     
     <input type="text" id="tareaInput" placeholder="Escribe una tarea">
@@ -13,12 +15,27 @@
 
     <ul id="listaTareas"></ul>
 
+    <!-- SUBIR ARCHIVO -->
+    
     <h1>Subir Archivo</h1>
 
     <input type="file" id="archivoInput">
     <button onclick="subirArchivo()">Subir</button>
 
     <p id="mensaje"></p>
+
+
+    <!-- FORMULARIO -->
+
+    <h1>Registro de Usuario</h1>
+
+    <form id="registroForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="email" id="correo" placeholder="Correo" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p  id="mensaje"></p>
 
     <script src="index.js"></script>
 

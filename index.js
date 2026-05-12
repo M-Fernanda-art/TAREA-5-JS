@@ -164,3 +164,43 @@ function subirArchivo() {
         // Mensaje de error
     });
 }
+
+// FORMULARIO
+
+const formulario = document.getElementById("registroForm");
+const mensaje = document.getElementById("mensaje");
+
+formulario.addEventListener("submit", function(event) {
+    // Detecta cuando se envia
+    event.preventDefault();
+    // Evita que la pagina se reinicie
+    
+    const datos = {
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("correo").value
+    };
+    // Guarda la información del usuario
+
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        // Envia los datos al servidor
+        method: "POST",
+        // Envia la información
+        headers: {
+            "Content-Type": "application/json"
+            // Indica el formato
+        },
+        body: JSON.stringify(datos)
+        // Convierte a texto JSON
+    })
+    .then(response => response.json())
+    .then(data => {
+        mensaje.textContent = "Registro enviado correctamente";
+        // Mensaje si quedó bien
+        console.log(data);
+    })
+    .catch(error => {
+        mensaje.textContent = "Error al enviar el formulario";
+        // Mensaje si hay error
+        console.log(error);
+    });
+});
